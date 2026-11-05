@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronic Receipt</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .receipt {
+        background: white;
+        width: 100%;
+        max-width: 420px;
+        margin: auto;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    .center { text-align: center; }
+
+    .store-name {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .small {
+        font-size: 12px;
+        color: #555;
+        margin: 5px 0;
+    }
+
+    .divider {
+        border-top: 1px dashed #999;
+        margin: 15px 0;
+    }
+
+    .details, .total-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0;
+        font-size: 13px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 8px 2px;
+        text-align: left;
+    }
+
+    th:last-child, td:last-child {
+        text-align: right;
+    }
+
+    .grand-total {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .status {
+        color: green;
+        font-weight: bold;
+        text-align: center;
+        margin: 15px;
+    }
+
+    .print-btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #1677d2;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        margin: 20px auto;
+    }
+
+    @media print {
+        body {
+            background: white;
+            padding: 0;
+        }
+
+        .receipt {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .print-btn {
+            display: none;
+        }
+
+        @page {
+            margin: 10mm;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="receipt">
+
+    <div class="center">
+        <div class="store-name">CONDORPOS SOLUTION</div>
+        <div class="small">123 Sample Street, Quezon City</div>
+        <div class="small">VAT Reg TIN: 000-000-000-000</div>
+        <div class="small">Contact: 09123456789</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="details">
+        <span>Receipt No.</span>
+        <strong>INV-000123</strong>
+    </div>
+
+    <div class="details">
+        <span>Date</span>
+        <span>2026-11-05 09:30 AM</span>
+    </div>
+
+    <div class="details">
+        <span>Cashier</span>
+        <span>CASHIER 01</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="items">
+            <tr>
+                <td>Product A</td>
+                <td>2</td>
+                <td>200.00</td>
+            </tr>
+            <tr>
+                <td>Product B</td>
+                <td>1</td>
+                <td>150.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <div class="details">
+        <span>Subtotal</span>
+        <span>₱350.00</span>
+    </div>
+
+    <div class="details">
+        <span>VAT</span>
+        <span>₱0.00</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="total-row grand-total">
+        <span>TOTAL</span>
+        <span>₱350.00</span>
+    </div>
+
+    <div class="status">PAID</div>
+
+    <div class="divider"></div>
+
+    <div class="center">
+        <strong>Thank you for shopping!</strong>
+        <div class="small">This is your electronic receipt.</div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+        PRINT RECEIPT
+    </button>
+
+</div>
+
+</body>
+</html>
